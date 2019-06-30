@@ -1,0 +1,5 @@
+com\itcast\bean\system\User.class
+com\itcast\bean\system\UserExample$Criteria.class
+com\itcast\bean\system\UserExample$GeneratedCriteria.class
+com\itcast\bean\system\UserExample.class
+com\itcast\bean\system\UserExample$Criterion.class

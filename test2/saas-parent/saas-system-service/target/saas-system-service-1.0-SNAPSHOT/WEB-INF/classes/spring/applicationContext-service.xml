@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 1. 配置组件扫描 -->
+    <context:component-scan base-package="com.itcast.service"/>
+
+    <!-- 注册到dubbo中心 -->
+    <!-- 1. 配置提供者在注册中心的访问名称 -->
+    <dubbo:application name="ssm-system-service"></dubbo:application>
+
+    <!-- 2. 配置提供者在注册中心的协议名称 和 访问端口 -->
+    <dubbo:protocol name="dubbo" port="20881"></dubbo:protocol>
+
+    <!-- 3. 配置服务注册中心ip地址 -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>
+
+    <!-- 4. 配置注解的包扫描 -->
+    <dubbo:annotation package="com.itcast.service"></dubbo:annotation>
+
+</beans>
